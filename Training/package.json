@@ -1,0 +1,25 @@
+{
+  "name": "epam-nodejs-training",
+  "version": "0.0.1",
+  "description": "",
+  "main": "out/app.js",
+  "scripts": {
+    "start": "nodemon --exec npm run build-start",
+    "build-start": "npm run build && node out/app.js",
+    "build": "babel src -d out --plugins=babel-plugin-transform-es2015-modules-commonjs",
+    "test": ""
+  },
+  "author": "Oniskiv Vladislav <onisckif.vladislaw@mail.ru>",
+  "license": "ISC",
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "nodemon": "^1.17.3"
+  },
+  "devDependencies": {
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0"
+  }
+}
