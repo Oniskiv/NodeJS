@@ -1,6 +1,6 @@
 {
   "name": "epam-nodejs-training",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "main": "out/app.js",
   "scripts": {
@@ -17,6 +17,7 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-stage-2": "^6.24.1",
     "babel-register": "^6.26.0",
+    "csvtojson": "^1.1.9",
     "nodemon": "^1.17.3"
   },
   "devDependencies": {
