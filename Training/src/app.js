@@ -5,8 +5,8 @@ import dirwatcher from "./modules/dirwatcher";
 import importer from "./modules/importer";
 
 console.log(config.name);
-var userObj = new user();
-var productObj = new product();
+const userObj = new user();
+const productObj = new product();
 
-var dirwatcherObj = new dirwatcher(config.path, config.delay);
-var importerObj = new importer(dirwatcherObj, config.path);
+const dirwatcherObj = new dirwatcher(config.path, config.delay);
+const importerObj = new importer(dirwatcherObj, config.path);

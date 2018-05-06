@@ -1,4 +1,4 @@
-const EventEmitter = require('events').EventEmitter;
+const {EventEmitter} = require('events');
 const fs = require('fs');
 const pathUtil = require('path');
 const mapAll = new Map();
