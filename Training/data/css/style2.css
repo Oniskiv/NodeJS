@@ -1,0 +1,29 @@
+.error-block {
+    position: relative;
+    top: 150px;
+}
+
+.error-text {
+    font-family: "Times New Roman";
+    font-size: 64px;
+    color: #70747d;
+}
+
+.error-text-size-32 {
+    font-size: 32px;
+    text-align: center;
+}
+
+.error-block-description {
+    font-family: "Times New Roman";
+    font-size: 32px;
+    color: #a7a7a8;
+    text-align: center;
+    position: relative;
+    top: 200px;
+}
+
+.error-block-button {
+    position: relative;
+    top: 250px;
+}
