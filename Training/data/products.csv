@@ -1,4 +1,4 @@
-name,price,count
-Mp3-player,130,20
-Hairdryer,50,15
-Iron,100,75
+id,name,price,count,userId
+0,Mp3-player,130,20,0
+1,Hairdryer,50,15,1
+2,Iron,100,75,0

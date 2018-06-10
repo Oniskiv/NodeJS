@@ -3,5 +3,5 @@
   "path": "./data",
   "delay": 1000,
   "data": "./data/",
-  "static": "./data/static/"
+  "static": "./../../data/static/"
 }

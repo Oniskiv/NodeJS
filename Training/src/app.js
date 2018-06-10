@@ -1,14 +1,15 @@
-/*import config from "./../config/configuration";
-import user from "./models/user";
-import product from "./models/product";
-import dirwatcher from "./modules/dirwatcher";
-import importer from "./modules/importer";
+import express from 'express';
+import cookieParser from 'cookie-parser';
+import userRouter from './routes/user-router';
+import productRouter from './routes/product-router';
 
-console.log(config.name);
-const userObj = new user();
-const productObj = new product();
+const app = express();
 
-const dirwatcherObj = new dirwatcher(config.path, config.delay);
-const importerObj = new importer(dirwatcherObj, config.path);*/
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
+app.use(cookieParser())
 
-import stream from "./utils/streams";
+app.use('/api', userRouter);
+app.use('/api', productRouter);
+
+app.listen(3000, () => console.log('App listening on port 3000!'));
