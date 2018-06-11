@@ -1,12 +1,18 @@
-/*app.use(function (req, res, next) {
-    // check if client sent cookie
-    var cookie = req.cookies.cookieName;
+const parse = (req) => {
+    const cookies = req.cookies;
+    const parsedCookies = {};
+    if (cookies) {
+        cookies.forEach((cookie) => {
+            const parts = cookie.split('=');
+            parsedCookies[parts.shift().trim()] = parts;
+        });
+    }
+    return parsedCookies;
+};
 
-        // no: set a new cookie
-        var randomNumber=Math.random().toString();
-        randomNumber=randomNumber.substring(2,randomNumber.length);
-        res.cookie('cookieName',randomNumber, { maxAge: 900000, httpOnly: true });
-        console.log('cookie created successfully');
+const cookieParser = (req, res, next) => {
+    req.parsedCookies = parse(req);
+    next();
+};
 
-    next(); // <-- important!
-});*/
+export default cookieParser;

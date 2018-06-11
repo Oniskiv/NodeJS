@@ -1,7 +1,0 @@
-{
-  "name": "Node.js Homework Application",
-  "path": "./data",
-  "delay": 1000,
-  "data": "./data/",
-  "static": "./../../data/static/"
-}

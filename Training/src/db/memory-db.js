@@ -34,7 +34,7 @@ export default class MemoryDB {
 
     static addProduct(name, price, count) {
         let pr = new product(products.size, name, price, count, new Set());
-        products.set(pr.id, pr);
+        products.set('' + pr.id, pr);
         return pr;
     }
 }
