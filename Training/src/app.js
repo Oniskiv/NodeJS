@@ -1,14 +1,17 @@
-/*import config from "./../config/configuration";
-import user from "./models/user";
-import product from "./models/product";
-import dirwatcher from "./modules/dirwatcher";
-import importer from "./modules/importer";
+import express from 'express';
+import userRouter from './routes/user-router';
+import productRouter from './routes/product-router';
+import cookieMiddleware from './middlewares/cookie-middleware';
+import queryMiddleware from './middlewares/query-middleware';
 
-console.log(config.name);
-const userObj = new user();
-const productObj = new product();
+const app = express();
 
-const dirwatcherObj = new dirwatcher(config.path, config.delay);
-const importerObj = new importer(dirwatcherObj, config.path);*/
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
+app.use(cookieMiddleware);
+app.use(queryMiddleware);
 
-import stream from "./utils/streams";
+app.use('/api', userRouter);
+app.use('/api', productRouter);
+
+export default app;
