@@ -5,7 +5,7 @@ export default class Product {
     static convertUsers(tempUsers) {
         let users = new Map();
         tempUsers.forEach((us) => {
-            users.set(us.id, new user(us.id, us.name));
+            users.set(us.id, new user(us.id, us.name, us.login, us.password));
         });
         return users;
     }
