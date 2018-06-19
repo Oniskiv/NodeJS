@@ -3,7 +3,6 @@ import config from './../../config/configuration';
 
 const checkToken = (req, res, next) => {
     let token = req.headers['x-access-token'];
-
     if (token) {
         jwt.verify(token, config.secret, (error) => {
             if (error) {

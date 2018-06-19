@@ -3,9 +3,9 @@ const TwitterStrategy = require('passport-twitter').Strategy;
 import config from './../../config/configuration';
 
 passport.use('twitter', new TwitterStrategy({
-        consumerKey     : 'TX8LbZx4fq7ey02QwZdwuIwmD',
-        consumerSecret  : '4RkviSbV66SO5Ai2zlaCiGa4D3lhCk747azc54BTEpy0LP9U6G',
-        callbackURL     : 'http://127.0.0.1:3000/login/twitter/callback'
+        consumerKey     : config.twitter.appID,
+        consumerSecret  : config.twitter.appSecret,
+        callbackURL     : config.twitter.callbackUrl
     },
     function(token, tokenSecret, profile, done) {
         // make the code asynchronous

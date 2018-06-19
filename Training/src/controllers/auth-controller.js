@@ -35,4 +35,4 @@ exports.authorization = (req, res) => {
             });
         }
     }
-}
+};

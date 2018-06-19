@@ -1,6 +1,5 @@
 import passport from 'passport';
 import localStrategy from "./strategies/local-strategy";
-import twitterStrategy from './strategies/twitter-strategy';
 import memoryDB from "../db/memory-db";
 
 passport.use(localStrategy);
