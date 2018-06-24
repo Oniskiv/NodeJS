@@ -20,5 +20,13 @@
     "appID": "TX8LbZx4fq7ey02QwZdwuIwmD",
     "appSecret": "4RkviSbV66SO5Ai2zlaCiGa4D3lhCk747azc54BTEpy0LP9U6G",
     "callbackUrl": "http://127.0.0.1:3000/login/twitter/callback"
+  },
+  "development": {
+    "username": "postgres",
+    "password": 12345,
+    "database": "nodejs",
+    "host": "127.0.0.1",
+    "port": 5432,
+    "dialect": "postgres"
   }
 }

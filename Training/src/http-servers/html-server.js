@@ -1,6 +1,6 @@
 import server from 'http';
 import fs from 'fs';
-import config from './../../config/configuration';
+import config from './../config/config';
 import through from 'through2';
 
 const replace = () => {

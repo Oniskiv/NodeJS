@@ -1,4 +1,4 @@
-import config from './../config/configuration';
+import config from './config/config';
 import express from 'express';
 import userRouter from './routes/user-router';
 import productRouter from './routes/product-router';
@@ -9,7 +9,7 @@ import queryMiddleware from './middlewares/query-middleware';
 import authenticatedMiddleware from './middlewares/authenticated-middleware';
 import tokenVerifyMiddleware from './middlewares/token-verify-middleware';
 import passport from './passport/passport-config';
-var session = require('express-session');
+import session from 'express-session';
 
 const app = express();
 
