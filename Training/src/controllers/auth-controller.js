@@ -1,6 +1,6 @@
-import db from '../db/pg-db';
 import config from '../config/config';
 import jwt from 'jsonwebtoken';
+import User from "../models/user";
 
 exports.authorization = (req, res) => {
     let login = req.body.login;
@@ -14,7 +14,7 @@ exports.authorization = (req, res) => {
         });
     }
     else {
-        db.getUserByLogin(login).then(user => {
+        User.findOne({login: login}, (err, user) => {
             if (!user || login !== user.login || password !== user.password) {
                 res.statusCode = 404;
                 res.json({

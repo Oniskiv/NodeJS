@@ -1,9 +1,8 @@
-import db from "../../db/pg-db";
 import {Strategy as LocalStrategy} from 'passport-local';
+import User from "../../models/user";
 
 const strategy = new LocalStrategy((username, password, done) => {
-        db.getUserByLogin(username).then(user => {
-
+        User.findOne({login: username}, (err, user) => {
             if (!user || user.login !== username || user.password !== password) {
                 return done(null, false);
             }
