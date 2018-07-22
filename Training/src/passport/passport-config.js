@@ -1,6 +1,6 @@
 import passport from 'passport';
 import localStrategy from "./strategies/local-strategy";
-import memoryDB from "../db/memory-db";
+import db from "../db/pg-db";
 
 passport.use(localStrategy);
 
@@ -10,12 +10,13 @@ passport.serializeUser(function (user, done) {
 
 
 passport.deserializeUser(function (id, done) {
-    let user = memoryDB.getUserByLogin(id);
-    if (user) {
-        done(null, user);
-    } else {
-        done({error: "Something went wrong!"});
-    }
+    db.getUserByLogin(id).then(user => {
+        if (user) {
+            done(null, user);
+        } else {
+            done({error: "Something went wrong!"});
+        }
+    });
 })
 
 export default passport;

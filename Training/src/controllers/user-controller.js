@@ -1,9 +1,7 @@
-import memoryDB from "../db/memory-db";
+import db from "../db/pg-db";
 
 exports.allUsers = (req, res) => {
-    res.writeHead(200, {'Content-Type': 'text/json'});
-    memoryDB.getUsers().forEach(user => {
-        res.write(JSON.stringify(user, null, '\t'));
+    db.getUsers().then(users => {
+        res.status(200).json(users);
     });
-    res.end();
 }

@@ -1,6 +1,6 @@
 {
   "name": "epam-nodejs-training",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "",
   "main": "out/app.js",
   "scripts": {
@@ -38,6 +38,9 @@
     "passport-google-oauth": "^1.0.0",
     "passport-local": "^1.0.0",
     "passport-twitter": "^1.0.4",
+    "pg": "^7.4.3",
+    "sequelize": "^4.38.0",
+    "sequelize-cli": "^4.0.0",
     "through2": "^2.0.3"
   },
   "devDependencies": {
