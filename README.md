@@ -5,4 +5,5 @@ Task 2 - Done.\
 Task 3 - Done.\
 Task 4 - Done.\
 Task 5 - Done.\
-Task 6 - In progress.
+Task 6 - Done.\
+Task 7 - In progress.

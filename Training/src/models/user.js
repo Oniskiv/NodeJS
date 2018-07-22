@@ -1,11 +1,11 @@
-'use strict';
-module.exports = (sequelize, DataTypes) => {
-    var User = sequelize.define('User', {
-        name: DataTypes.STRING,
-        login: DataTypes.STRING,
-        password: DataTypes.STRING
-    }, {});
-    User.associate = function (models) {
-    };
-    return User;
-};
+import mongoose from 'mongoose';
+
+const Schema = mongoose.Schema;
+
+var userSchema = new Schema({
+    name: {type: String, required: true},
+    login: {type: String, required: true},
+    password: {type: String, required: true}
+});
+
+module.exports = mongoose.model('User', userSchema);
