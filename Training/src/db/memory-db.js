@@ -28,6 +28,16 @@ export default class MemoryDB {
         return users;
     }
 
+    static getUserByLogin(login) {
+        let us = null;
+        users.forEach((user) => {
+            if (user.login === login) {
+                us = user;
+            }
+        });
+        return us;
+    }
+
     static getReviews(id) {
         return products.get(id).reviews.values();
     }
