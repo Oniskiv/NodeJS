@@ -1,4 +1,3 @@
-import mongoServer from './http-servers/mongo-server';
 import app from './app';
 
 const port = process.env.PORT || 8080;
