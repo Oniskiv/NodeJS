@@ -44,6 +44,7 @@
     "pg": "^7.4.3",
     "sequelize": "^4.38.0",
     "sequelize-cli": "^4.0.0",
+    "swagger": "^0.7.5",
     "through2": "^2.0.3"
   },
   "devDependencies": {

@@ -1,0 +1,12 @@
+{
+  "name": "Node.js Homework Application",
+  "path": "./data",
+  "delay": 1000,
+  "data": "./data/",
+  "static": "./data/static/",
+  "secret": "secret",
+  "mongodb": {
+    "url": "mongodb://localhost:27017",
+    "dbName": "nodejs"
+  }
+}

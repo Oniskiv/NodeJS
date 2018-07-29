@@ -1,0 +1,278 @@
+swagger: '2.0'
+info:
+  version: '1.0.0'
+  title: 'NodeJS Training API'
+  description: 'This is NodeJS Training API'
+
+host: localhost:10010
+basePath: /api/
+
+tags:
+- name: "user"
+  description: "Operations about user"
+- name: "product"
+  description: "Operations about product"
+- name: "city"
+  description: "Operations about city"
+
+paths:
+  /users:
+    x-swagger-router-controller: user-controller
+    get:
+      tags:
+      - user
+      summary: Gets a list of all users
+      operationId: allUsers
+      produces:
+      - "application/json"
+      responses:
+        "200":
+          description: List of all users
+          schema:
+            $ref: '#/definitions/Users'
+  /users/{id}:
+    delete:
+      tags:
+      - user
+      summary: "Deletes a user"
+      operationId: deleteUser
+      produces:
+      - "application/json"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "User id to delete"
+        required: true
+        type: "integer"
+      responses:
+        "200":
+          description: User deleted
+  /products:
+    x-swagger-router-controller: product-controller
+    get:
+      tags:
+      - product
+      summary: Gets a list of all users
+      operationId: allProducts
+      produces:
+      - "application/json"
+      responses:
+        "200":
+          description: List of all products
+          schema:
+            $ref: '#/definitions/Products'
+    post:
+      tags:
+        - product
+      summary: Adds a new product
+      operationId: addProduct
+      consumes:
+        - multipart/form-data
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: Product object that needs to be added
+          required: true
+          schema:
+            $ref: '#/definitions/Product'
+      responses:
+        '200':
+          description: Product added
+          schema:
+            $ref: '#/definitions/Product'
+  /products/{id}:
+    get:
+      tags:
+      - product
+      summary: Gets a product by id
+      operationId: productById
+      produces:
+        - application/xml
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          description: Id of product to return
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Product received
+          schema:
+            $ref: '#/definitions/Product'
+    delete:
+      tags:
+      - product
+      summary: "Deletes a product"
+      operationId: deleteProduct
+      produces:
+      - "application/json"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "Product id to delete"
+        required: true
+        type: "integer"
+      responses:
+        "200":
+          description: Product deleted
+  /products/{id}/reviews:
+    get:
+      tags:
+      - product
+      summary: Gets reviews for product by id
+      operationId: allReviewsByProduct
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          description: Id of product
+          required: true
+          type: integer
+      responses:
+        '200':
+          description: Product reviews received
+  /cities:
+    x-swagger-router-controller: city-controller
+    get:
+      tags:
+      - city
+      summary: Gets a list of all cities
+      operationId: allCities
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: List of all cities
+          schema:
+            $ref: '#/definitions/City'
+    post:
+      tags:
+        - city
+      summary: Adds a new product
+      operationId: addCity
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: City object that needs to be added
+          required: true
+          schema:
+            $ref: '#/definitions/City'
+      responses:
+        '200':
+          description: City added
+          schema:
+            $ref: '#/definitions/Cities'
+  /cities/{id}:
+    put:
+      tags:
+        - city
+      summary: Updates an existing city
+      operationId: updateCity
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          description: "City id to update"
+          required: true
+          type: integer
+        - in: body
+          name: body
+          description: City object that needs to be updated
+          required: true
+          schema:
+            $ref: '#/definitions/City'
+      responses:
+        '200':
+          description: City updated
+    delete:
+      tags:
+      - city
+      summary: "Deletes a city"
+      operationId: deleteCity
+      produces:
+      - application/json
+      parameters:
+      - name: id
+        in: path
+        description: "City id to delete"
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: City deleted
+
+definitions:
+  User:
+    required:
+      - name
+      - login
+      - password
+    properties:
+      name:
+        type: string
+      login:
+        type: string
+      password:
+        type: string
+  Users:
+    type: array
+    items:
+      $ref: '#/definitions/User'
+  Product:
+    required:
+      - name
+      - price
+      - count
+      - reviews
+    properties:
+      name:
+        type: string
+      price:
+        type: string
+      count:
+        type: string
+      reviews:
+        type: string
+  Products:
+    type: array
+    items:
+      $ref: '#/definitions/Product'
+  City:
+    required:
+      - name
+      - country
+      - capital
+    properties:
+      name:
+        type: string
+      country:
+        type: string
+      capital:
+        type: string
+      location:
+        $ref: '#/definitions/Location'
+  Cities:
+    type: array
+    items:
+      $ref: '#/definitions/City'
+  Location:
+    required:
+      - lat
+      - long
+    properties:
+      lat:
+        type: string
+      long:
+        type: string
